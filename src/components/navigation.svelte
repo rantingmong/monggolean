@@ -1,12 +1,12 @@
 <div class="navigation--container">
   <div class="inner">
     <p class="branding">
-      <span on:click={() => $pageTab = 0}>monggolean</span>
+      <a href="/">monggolean</a>
     </p>
     <div class="navigation--menu">
-      <a on:click={() => $pageTab = 1} href="#blogs">Blogs</a>
-      <a on:click={() => $pageTab = 2} href="#about">About</a>
-      <a on:click={() => $pageTab = 3} href="#contact">Contact</a>
+      <a href="/blogs">Blogs</a>
+      <a href="/about">About</a>
+      <a href="/contact">Contact</a>
     </div>
   </div>
 </div>
@@ -21,6 +21,11 @@
   }
 
   .navigation--container .branding {
+    margin: 0;
+    padding: 0;
+  }
+
+  .navigation--container .branding a {
     color: white;
 
     font-size: 20pt;
@@ -32,16 +37,10 @@
     user-select: none;
     cursor: default;
 
+    text-decoration: none;
+
     margin: 0;
     padding: 0;
-  }
-  .navigation--container .branding .caption {
-    font-size: 6pt;
-    text-transform: uppercase;
-
-    position: absolute;
-    left: 0;
-    bottom: -12pt;
   }
 
   .navigation--menu a {
@@ -50,5 +49,4 @@
   }
 </style>
 <script lang="ts">
-  import {pageTab, pageLinks} from "../store/navigation"
 </script>

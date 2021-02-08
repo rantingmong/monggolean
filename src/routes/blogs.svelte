@@ -7,3 +7,5 @@
     padding: 25pt;
   }
 </style>
+<script lang="ts">
+</script>
