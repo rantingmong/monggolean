@@ -10,7 +10,7 @@
 
   export const preload: Preload = async function (this: PreloadContext, page: Page, session) {
 
-    this.redirect(307, 'admin/login?next=posts')
+    this.redirect(307, '/admin/login?next=posts')
 
     return {}
   }
