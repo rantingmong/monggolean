@@ -1,3 +1,6 @@
+<svelte:head>
+    <title>monggolean | Blogs</title>
+</svelte:head>
 <div class="blogs--content">
   <h1>Blogs</h1>
   <p>No Blogs yet. Coming soon though!</p>

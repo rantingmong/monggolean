@@ -1,3 +1,6 @@
+<svelte:head>
+    <title>monggolean | Contact</title>
+</svelte:head>
 <div class="contact--content">
   <h1>Contact</h1>
   <p>My LinkedIn profile is easily reachable! Its at in/mongster.</p>

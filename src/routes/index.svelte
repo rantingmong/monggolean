@@ -1,3 +1,6 @@
+<svelte:head>
+    <title>monggolean</title>
+</svelte:head>
 <div class="home fill">
   <div class="hero">
     <h1>I do software development</h1>
@@ -10,6 +13,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
+    padding: 0;
   }
 
 </style>

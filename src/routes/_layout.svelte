@@ -1,13 +1,23 @@
-<svelte:head>
-    <title>monggolean</title>
-</svelte:head>
+{#if notAdmin}
 <Navigation/>
 <div class='application--container'>
-    <slot></slot>
+    <slot/>
 </div>
+{:else}
+<NavigationAdmin/>
+<div class='application--container'>
+    <slot/>
+</div>
+{/if}
 
 <script lang="ts">
-    import Navigation from '../components/navigation.svelte'
+    import Navigation       from '../components/navigation.svelte'
+    import NavigationAdmin  from '../components/navigation-admin.svelte'
+
+    export let segment
+
+    $: notAdmin = segment != 'admin'
+
 </script>
 <style>
     :global(body) {
@@ -31,5 +41,11 @@
 
     .application--container {
         overflow-y: scroll;
+        position: relative;
     }
+
+    .application--container > :global(div) {
+        padding: 25pt;
+    }
+
 </style>
