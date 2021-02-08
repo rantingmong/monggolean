@@ -7,7 +7,6 @@
       <excludeFolder url="file://$MODULE_DIR$/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/.vercel" />
-      <excludeFolder url="file://$MODULE_DIR$/src/node_modules" />
       <excludeFolder url="file://$MODULE_DIR$/__sapper__" />
     </content>
     <orderEntry type="inheritedJdk" />
