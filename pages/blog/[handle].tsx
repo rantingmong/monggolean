@@ -35,11 +35,22 @@ export default function BlogHandle(post) {
   }
 
   const date = parseJSON(post.dateAdded)
+  let datePost: string = ''
+
+  if (date) {
+    try {
+      datePost = format(date, 'MMM dd, yyyy | hh:mm aa')
+    } catch {
+      datePost = ''
+    }
+  } else {
+    datePost = ''
+  }
 
   return (
     <article className='p-5'>
       <h1 className='text-4xl font-bold uppercase'>{post.title}</h1>
-      <p>Posted {format(date, 'MMM dd, yyyy | hh:mm aa')}</p>
+      <p>Posted {datePost}</p>
       <br />
       <div className='font-serif' dangerouslySetInnerHTML={{__html:post.content}}>
       </div>
