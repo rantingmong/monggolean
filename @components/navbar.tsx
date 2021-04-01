@@ -17,15 +17,15 @@ export default function Navbar({ route }: { route: Router }) {
       <div className='flex flex-col space-y-2 pb-4 mt-12'>
         <Link href='/'>
           <a className={`lg:px-4 py-3 text-center lg:text-left hover:bg-white hover:bg-opacity-10 rounded-lg ${isActive('/')}`}>
-            <span className="material-icons lg:hidden">home</span>
+            <div className='lg:hidden'><span className="material-icons">home</span></div>
             <span className='hidden lg:block'>Home</span></a></Link>
         <Link href='/blog'>
           <a className={`lg:px-4 py-3 text-center lg:text-left hover:bg-white hover:bg-opacity-10 rounded-lg ${isActive('/blog')}`}>
-            <span className="material-icons lg:hidden">dynamic_feed</span>
+            <div className='lg:hidden'><span className="material-icons">dynamic_feed</span></div>
             <span className='hidden lg:block'>Blog</span></a></Link>
         <Link href='/info'>
           <a className={`lg:px-4 py-3 text-center lg:text-left hover:bg-white hover:bg-opacity-10 rounded-lg ${isActive('/info')}`}>
-            <span className="material-icons lg:hidden">volunteer_activism</span>
+            <div className='lg:hidden'><span className="material-icons">volunteer_activism</span></div>
             <span className='hidden lg:block'>Let's Work Together</span></a></Link>
         <div className='hidden items-center px-2 mt-8 lg:flex'>
           <span className='m-2 text-xs'>Made in Lipa with <span className="material-icons" style={{fontSize:'6pt'}}>favorite</span> by</span>
