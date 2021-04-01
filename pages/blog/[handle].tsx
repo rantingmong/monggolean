@@ -1,15 +1,43 @@
-export default function BlogHandle() {
+import { client } from "@logic/grahpql"
+import { format, parseISO, parseJSON } from "date-fns"
+import { gql } from "graphql-request"
+import { GetStaticPaths, GetStaticProps } from "next"
+
+export const getStaticPaths: GetStaticPaths = async context => {
+  return {
+    paths: [],
+    fallback: true
+  }
+}
+
+export const getStaticProps: GetStaticProps = async context => {
+
+  const query = gql`
+    query Details($slug: String!) {
+      post(slug: $slug, hostname: "blog.mong.work") {
+        title
+        content
+        dateAdded
+      }
+    }`
+
+  const result = await client.request(query, { slug: context.params.handle })
+
+  return {
+    props: result.post
+  }
+}
+
+export default function BlogHandle(post) {
+
+  const date = parseJSON(post.dateAdded)
+
   return (
     <article className='p-5'>
-      <h1 className='text-4xl font-bold uppercase'>Blog Title</h1>
-      <p>Posted [Date Goes Here]</p>
+      <h1 className='text-4xl font-bold uppercase'>{post.title}</h1>
+      <p>Posted {format(date, 'MMM dd, yyyy | hh:mm aa')}</p>
       <br />
-      <div className='grid grid-cols-4 lg:grid-cols-6'>
-        <div className='col-span-3 lg:col-span-4'>
-          <p className='text-justify'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-          <h3 className='text-xl mt-8 mb-4'>Section</h3>
-          <p className='text-justify'>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
-        </div>
+      <div className='font-serif' dangerouslySetInnerHTML={{__html:post.content}}>
       </div>
     </article>
   )

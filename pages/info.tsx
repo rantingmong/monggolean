@@ -1,3 +1,3 @@
 export default function Info() {
-  return <div>Info</div>
+  return <div className='p-5'>Info</div>
 }

@@ -4,6 +4,7 @@ module.exports = {
   theme: {
     fontFamily: {
       'sans': ['poppins'],
+      'serif': ['arvo'],
       'mono': ['nova mono']
     },
     extend: {
