@@ -2,18 +2,21 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 
 import '../styles/globals.css'
+
+import 'material-design-icons'
 import 'tailwindcss/tailwind.css'
 
 import Navbar from '@components/navbar'
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   return (
-    <div className='grid grid-cols-dashboard'>
+    <div className='grid grid-cols-dashboard-sm lg:grid-cols-dashboard'>
       <Head>
         <title>monggolean</title>
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,400;0,700;1,500&display=swap" rel="stylesheet"></link>
         <link href="https://fonts.googleapis.com/css2?family=Nova+Mono&display=swap" rel="stylesheet"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
       </Head>
       <Navbar route={router} />
       <div></div>
