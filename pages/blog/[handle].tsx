@@ -30,6 +30,10 @@ export const getStaticProps: GetStaticProps = async context => {
 
 export default function BlogHandle(post) {
 
+  if (!post) {
+    return <span>Meh.</span>
+  }
+
   const date = parseJSON(post.dateAdded)
 
   return (
