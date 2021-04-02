@@ -100,9 +100,16 @@ export default function BlogHandle(post) {
           return <h6 className='text-sm col-span-6'>{children}</h6>
       }
     },
-    paragraph: ({children}) => <p className='mb-2 col-span-4'>{children}</p>,
-    image: ({src, alt}) => <img src={src} alt={alt} className='col-span-4 border border-gray-400 rounded-md overflow-hidden object-fill'></img>,
-    text: ({value}) => <span className='col-span-4'>{value}</span>
+    paragraph: ({ children }) => <p className='mb-2 col-span-4'>{children}</p>,
+    image: ({ src, alt }) => <img src={src} alt={alt} className='col-span-4 border border-gray-400 rounded-md overflow-hidden object-fill'></img>,
+    text: ({ value }) => <span className='col-span-4'>{value}</span>,
+    blockquote: ({ children }) => (
+      <p className='mb-2 col-span-2 relative pl-4'>
+        {children}
+        <span className='absolute top-0 bottom-0 left-0 w-2 bg-gray-500 rounded-full'></span>
+      </p>
+    ),
+    thematicBreak: () => <hr className='col-span-6' />
   }
 
   return (
