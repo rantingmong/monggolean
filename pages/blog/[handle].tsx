@@ -89,11 +89,11 @@ export default function BlogHandle(post) {
     heading: ({ level, children }) => {
       switch (level) {
         case 1:
-          return <h1 className='text-3xl col-span-6'>{children}</h1>
+          return <h1 className='text-4xl col-span-6'>{children}</h1>
         case 2:
-          return <h2 className='text-2xl col-span-6'>{children}</h2>
+          return <h2 className='text-3xl col-span-6'>{children}</h2>
         case 3:
-          return <h3 className='text-1xl col-span-6'>{children}</h3>
+          return <h3 className='text-2xl col-span-6'>{children}</h3>
         case 4:
           return <h4 className='text-xl col-span-6'>{children}</h4>
         case 5:
@@ -104,7 +104,6 @@ export default function BlogHandle(post) {
     },
     paragraph: ({ children }) => <p className='mb-2 col-span-4'>{children}</p>,
     image: ({ src, alt }) => <img src={src} alt={alt} className='col-span-4 border border-gray-400 rounded-md overflow-hidden object-fill'></img>,
-    text: ({ value }) => <span className='col-span-4'>{value}</span>,
     blockquote: ({ children }) => (
       <p className='mb-2 col-span-2 relative pl-4'>
         {children}
