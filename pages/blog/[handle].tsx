@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import { client } from "@logic/grahpql"
 import { format, parseJSON } from "date-fns"
 import { gql } from "graphql-request"
@@ -38,6 +39,7 @@ export const getStaticProps: GetStaticProps = async context => {
         title
         content
         contentMarkdown
+        brief
         dateAdded
       }
     }`
@@ -114,6 +116,16 @@ export default function BlogHandle(post) {
 
   return (
     <article className='p-5 pt-10 pb-20'>
+      <Head>
+        <meta name="twitter:card" content="summary"></meta>
+        <meta name="twitter:creator" content="@rantingmong"></meta>
+        <meta property="og:type" content='article' />
+        <meta property="og:article:published_time" content={post.dateAdded}></meta>
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.brief} />
+        <meta property="og:article:section" content='Blog' />
+
+      </Head>
       <h1 className='text-4xl font-bold uppercase select-none cursor-default'>{post.title}</h1>
       <p className='select-none cursor-default'>Posted {datePost}</p>
       <br />
