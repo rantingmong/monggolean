@@ -1,11 +1,27 @@
 import { client } from "@logic/grahpql"
-import { format, parseISO, parseJSON } from "date-fns"
+import { format, parseJSON } from "date-fns"
 import { gql } from "graphql-request"
+import { map } from "lodash"
 import { GetStaticPaths, GetStaticProps } from "next"
 
 export const getStaticPaths: GetStaticPaths = async context => {
+
+  const query = gql`
+    query Blogs {
+      user(username: "monggolean") {
+        publication {
+          posts {
+            slug
+          }
+        }
+      }
+    }
+  `
+
+  const result = await client.request(query)
+
   return {
-    paths: [],
+    paths: map(result.user.publication.posts, slug => `/blog/${slug}`),
     fallback: true
   }
 }
@@ -17,14 +33,21 @@ export const getStaticProps: GetStaticProps = async context => {
       post(slug: $slug, hostname: "blog.mong.work") {
         title
         content
+        contentMarkdown
         dateAdded
       }
     }`
 
-  const result = await client.request(query, { slug: context.params.handle })
+  try {
+    const result = await client.request(query, { slug: context.params.handle })
 
-  return {
-    props: result.post
+    return {
+      props: result.post
+    }
+  } catch {
+    return {
+      notFound: true
+    }
   }
 }
 
@@ -52,7 +75,8 @@ export default function BlogHandle(post) {
       <h1 className='text-4xl font-bold uppercase'>{post.title}</h1>
       <p>Posted {datePost}</p>
       <br />
-      <div className='font-serif' dangerouslySetInnerHTML={{__html:post.content}}>
+      <div className='font-serif'>
+        {post.contentMarkdown}
       </div>
     </article>
   )
