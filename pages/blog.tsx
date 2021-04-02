@@ -52,7 +52,7 @@ export default function Blog({ posts }) {
       <h1 className='lg:hidden text-3xl mb-2 font-bold cursor-default'>Blog</h1>
       <h2 className='select-none cursor-default'>This is where I'll rant about the fascinations and ruminations I have with life and work!</h2>
       <div className='mt-8 space-y-8 pb-12'>
-        {map(content, item => <BlogGroup {...item} />)}
+        {map(content, item => <BlogGroup key={item.date} {...item} />)}
       </div>
     </div>
   )

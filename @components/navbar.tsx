@@ -11,7 +11,7 @@ export default function Navbar({ route }: { route: Router }) {
     <div className='fixed t-0 b-0 l-0 h-full w-dashboard-navbar-sm lg:w-dashboard-navbar bg-blue-600 dark:bg-blue-900 text-white flex flex-col justify-between px-2 lg:px-6 py-4 select-none overflow-y-scroll'>
       <div className='flex flex-col items-center space-y-2 font-mono'>
         <Image src='/logo.svg' alt='logo' width={200} height={200} />
-        <span className='text-xl hidden lg:block cursor-default'>monggolean</span>
+        <span className='text-xl hidden lg:block cursor-default' style={{fontFamily:'nova mono'}}>monggolean</span>
       </div>
 
       <div className='flex flex-col space-y-2 pb-4 mt-12'>

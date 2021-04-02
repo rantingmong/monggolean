@@ -1,11 +1,14 @@
 module.exports = {
-  purge: [],
+  purge: [
+    '@components/**/*.tsx',
+    'pages/**/*.tsx'
+  ],
   darkMode: 'media',
   theme: {
     fontFamily: {
       'sans': ['poppins'],
       'serif': ['arvo'],
-      'mono': ['nova mono']
+      'mono': ['jetbrains mono']
     },
     extend: {
       gridTemplateColumns: {
