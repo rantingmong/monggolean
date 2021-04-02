@@ -21,7 +21,7 @@ export const getStaticPaths: GetStaticPaths = async context => {
   const result = await client.request(query)
 
   return {
-    paths: map(result.user.publication.posts, slug => `/blog/${slug}`),
+    paths: map(result.user.publication.posts, ({slug}) => `/blog/${slug}`),
     fallback: true
   }
 }
