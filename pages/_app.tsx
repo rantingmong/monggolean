@@ -10,6 +10,14 @@ import Navbar from '@components/navbar'
 import Progress from '@components/progress'
 import { useEffect, useState } from 'react'
 
+const webFonts = [
+  'Arvo:ital,wght@0,400;0,700;1,400;1,700',
+  'JetBrains+Mono:ital,wght@0,400;1,700',
+  'Nova+Mono',
+  'Poppins:ital,wght@0,400;0,700;1,400',
+  'Material+Icons'
+]
+
 function MyApp({ Component, pageProps, router }: AppProps) {
 
   const [progress, setProgress] = useState(0)
@@ -54,6 +62,13 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <div className='grid grid-cols-dashboard-sm lg:grid-cols-dashboard'>
       <Head>
         <title>monggolean</title>
+
+        <link rel="preconnect"
+            href="https://fonts.gstatic.com" crossOrigin="true" />
+          <link rel='preload' as='style'
+            href={`https://fonts.googleapis.com/css2?${webFonts.map(item => `family=${item}`).join('&')}&display=swap`} />
+          <link rel='stylesheet' media='print'
+            href={`https://fonts.googleapis.com/css2?${webFonts.map(item => `family=${item}`).join('&')}&display=swap`} onLoad="this.media = 'all'" />
       </Head>
       <Navbar route={router} />
       <div></div>

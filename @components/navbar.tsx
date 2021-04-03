@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import Logo from './logo.svg'
 
 import type { Router } from 'next/router'
 
@@ -10,8 +11,8 @@ export default function Navbar({ route }: { route: Router }) {
   return (
     <div className='fixed t-0 b-0 l-0 h-full w-dashboard-navbar-sm lg:w-dashboard-navbar bg-blue-600 dark:bg-blue-900 text-white flex flex-col justify-between px-2 lg:px-6 py-4 select-none overflow-y-scroll'>
       <div className='flex flex-col items-center space-y-2 font-mono'>
-        <Image src='/logo.svg' alt='logo' width={200} height={200} />
-        <span className='text-xl hidden lg:block cursor-default' style={{fontFamily:'nova mono'}}>monggolean</span>
+        <Logo style={{ maxWidth: '200px', maxHeight: '200px' }} />
+        <span className='text-xl hidden lg:block cursor-default' style={{ fontFamily: 'nova mono' }}>monggolean</span>
       </div>
 
       <div className='flex flex-col space-y-2 pb-4 mt-12'>
@@ -28,7 +29,7 @@ export default function Navbar({ route }: { route: Router }) {
             <div className='lg:hidden'><span className="material-icons">volunteer_activism</span></div>
             <span className='hidden lg:block'>Let's Work Together</span></a></Link>
         <div className='hidden items-center px-2 mt-8 lg:flex'>
-          <span className='m-2 text-xs'>Made in Lipa with <span className="material-icons" style={{fontSize:'6pt'}}>favorite</span> by</span>
+          <span className='m-2 text-xs'>Made in Lipa with <span className="material-icons" style={{ fontSize: '6pt' }}>favorite</span> by</span>
           <a href='https://buslocollective.online' target='_blank' style={{ lineHeight: 0.5 }}>
             <Image src='/buslo.svg' width={20} height={20} alt='Buslo Collective Icon' />
           </a>
